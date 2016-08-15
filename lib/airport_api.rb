@@ -15,21 +15,26 @@ class AirportApi
    JSON.parse(grab_data)
 	end
 
-	def get_aiport
+	def get_airport_code
 		parse_data["IATA"]
 	end
 
+	def get_state
+		parse_data["state"]
+	end
+
+	def get_airport_name
+		parse_data["name"]
+	end
+
+	def get_weather
+		parse_data["weather"]
+	end
+
+  def get_status
+  	parse_data["status"]
+  end
+
 end
 
-puts AirportApi.new.get_aiport
-
-# uri = URI('http://services.faa.gov/airport/status/PDX?format=application/json')
-
-# puts Net::HTTP.get(uri)
-
-# class Foo
-# 	def self.speak
-# 		"Hi"
-# 	end
-# end
 

@@ -2,8 +2,7 @@ require '../lib/airport_api'
 require 'minitest/rg'
 require 'minitest/autorun'
 
-class TestAirportApi < MiniTest::Unit::TestCase
-
+class TestAirportApi < Minitest::Test
 	def setup
 		@airport = AirportApi.new
 	end
@@ -18,6 +17,13 @@ class TestAirportApi < MiniTest::Unit::TestCase
 
   def test_it_will_get_airport_name
   	assert_equal "Los Angeles International", @airport.get_airport_name
+  end
+
+  def test_it_will_get_weather
+    assert_instance_of Float, @airport.get_weather["visibility"]
+    assert_instance_of String, @airport.get_weather["weather"]
+    assert_match /F | C/, @airport.get_weather["temp"]
+    assert_match /mph/, @airport.get_weather["wind"]
   end
 
 end

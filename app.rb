@@ -8,5 +8,6 @@ get '/' do
 end
 
 get '/api' do
-  @weather = AirportApi.new.get_weather.to_s
+  @weather = AirportApi.new.get_weather
+  erb :api
 end

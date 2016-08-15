@@ -2,13 +2,15 @@ require '../lib/airport_api'
 require 'minitest/rg'
 require 'minitest/autorun'
 
-class TestFoo < MiniTest::Unit::TestCase
- 
+class TestAirportApi < MiniTest::Unit::TestCase
 
-  def test_it_will_talk
-  	assert_equal "Hi", Foo.speak
+	def setup
+		@airport = AirportApi.new
+	end
+
+  def test_it_will_get_airport_code
+  	assert_equal "LAX", @airport.get_airport_code
   end
 
-
-
 end
+

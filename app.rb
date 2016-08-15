@@ -3,11 +3,17 @@ require 'shotgun'
 require 'sinatra'
 
 get '/' do
-	@time = Time.now
-  erb :index
+	@state = AirportApi.new.get_state
+	@name = AirportApi.new.get_airport_name
+	erb :index
 end
 
-get '/api' do
+get '/weather' do
   @weather = AirportApi.new.get_weather
-  erb :api
+  erb :weather
+end
+
+get '/status' do
+	@status = AirportApi.new.get_status
+	erb :status
 end

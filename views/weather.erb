@@ -1,0 +1,9 @@
+<html>
+<head>
+	<title>Sinatra Airport App</title>
+</head>
+<body>
+	<p>As of <%= @weather["meta"]["updated"] %>, the visibility is currently <%= @weather["visibility"] %> miles.  It's also <%= @weather["weather"] %>.</p>
+	<p>The tempature is <%= @weather["temp"] %> and the wind is <%= @weather["wind"] %></p>
+</body>
+</html>

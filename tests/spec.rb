@@ -26,5 +26,9 @@ class TestAirportApi < Minitest::Test
     assert_match /mph/, @airport.get_weather["wind"]
   end
 
+  def test_it_will_get_status
+  	assert_equal "No known delays for this airport.", @airport.get_status
+  end
+
 end
 

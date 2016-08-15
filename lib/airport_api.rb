@@ -4,7 +4,7 @@ require 'net/http'
 class AirportApi
 
 	def initialize
-		@uri = URI("http://services.faa.gov/airport/status/LAX?format=application/json")
+		@uri = URI("http://services.faa.gov/airport/status/BHM?format=application/json")
 	end
 
 	def grab_data
@@ -32,9 +32,11 @@ class AirportApi
 	end
 
   def get_status
-  	parse_data["status"]
+  	parse_data["status"]["reason"]
   end
 
 end
+
+
 
 
